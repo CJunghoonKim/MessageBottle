@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * @author coryj
+ * @author Cory Kim
  *
  * Basic image encryptor that utilizes symmetric encryption.
  */
