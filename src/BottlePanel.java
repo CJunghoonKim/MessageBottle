@@ -1,10 +1,14 @@
+import java.awt.Dimension;
+
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * @author Cory Kim
+ * @author coryj
  *
  * Basic image encryptor that utilizes symmetric encryption.
  */
@@ -19,26 +23,59 @@ public class BottlePanel extends JPanel {
 	private final static int WINDOW_WIDTH = 600;
 	
 	/**
-	 * Labels
-	 */
-	private JLabel title;
-	
-	/**
 	 * Buttons
 	 */
-	private JButton chooseImage;
+	private JButton chooseFile;
 	private JButton pushToEncrypt;
 	
 	/**
 	 * Textfields
 	 */
-	private JTextField password;
+	private JTextField keyEntry;
 	
-	private BottlePanel() {
-		
+	/**
+	 * File chooser
+	 */
+	final JFileChooser fileOpener = new JFileChooser();;
+	
+	/**
+	 * Constructor that initializes interface
+	 */
+	public BottlePanel() {
+		createComponents();
+	}
+	
+	/**
+	 * Basic mutators and accessors
+	 */
+	public int getWindowHeight() {
+		return WINDOW_HEIGHT;
+	}
+	
+	public int getWindowWidth() {
+		return WINDOW_WIDTH;
 	}
 	
 	public void createComponents() {
+		/**
+		 * Initialization
+		 */
+		chooseFile = new JButton("Click to choose file");
+		pushToEncrypt = new JButton("Encrypt");
+		keyEntry = new JTextField("");
+
+		/**
+		 * Add to parent panel
+		 */
+		this.add(chooseFile);
+		this.add(pushToEncrypt);
+		this.add(keyEntry);
 		
+		/**
+		 * Visual modifications
+		 */
+		keyEntry.setColumns(10);
+		
+		this.setVisible(true);
 	}
 }
